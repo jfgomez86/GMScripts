@@ -2,7 +2,7 @@
 // @name Cuevana Multimedia Keys
 // @namespace http://github.com/jfgomez86/greasemonkey
 // @version 0.1.2
-// @description This script enables the use of Multimedia keys on http://cuevana.com
+// @description This script enables the use of Multimedia keys on http://cuevana.com. For chrome use TamperMonkey
 // @include http://*.cuevana.com/series/*
 // @require http://code.jquery.com/jquery-1.4.3.min.js
 // @copyright  2010+, Jose Gomez
