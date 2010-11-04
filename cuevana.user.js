@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name Cuevana Multimedia Keys
 // @namespace http://github.com/jfgomez86/greasemonkey
-// @version 0.1.2
+// @version 0.1.3
 // @description This script enables the use of Multimedia keys on http://cuevana.com. For chrome use TamperMonkey
 // @include http://*.cuevana.com/series/*
 // @require http://code.jquery.com/jquery-1.4.3.min.js
@@ -16,22 +16,23 @@
 
       // 39: Right
       // 37: Left
+      // 32: Space
       f = ({
-        39: function (ctrlKey) {
-          if (ctrlKey) {
-            $("div[title=Next episode]").click();
-            evt.preventDefault();
-          }
+        39: function () {
+          $("div.epi_sig").click();
         },
-        37: function (ctrlKey) {
-          if (ctrlKey) {
-            $("div[title=Previous episode]").click();
-            evt.preventDefault();
-          }
+        37: function () {
+          $("div.epi_ant").click();
+        },
+        32: function () {
+          $("#player_frame").get(0).contentWindow.document.getElementsByClassName("boton1")[0].onclick()
         }
       })[evt.keyCode];
 
-      if (f) f(evt.ctrlKey || evt.metaKey);
+      if (f && (evt.ctrlKey || evt.metaKey || evt.altKey)) {
+        f();
+        evt.preventDefault();
+      };
     });
   });
 })(jQuery.noConflict());
