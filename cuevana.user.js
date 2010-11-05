@@ -25,6 +25,7 @@
           $("div.epi_ant").click();
         },
         32: function () {
+          // TODO: Doesn't work right now
           $("#player_frame").get(0).contentWindow.document.getElementsByClassName("boton1")[0].onclick()
         }
       })[evt.keyCode];
